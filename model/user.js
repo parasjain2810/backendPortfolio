@@ -19,13 +19,9 @@ const userSchema= new mongoose.Schema({
 
 
 async function sendVerificationEmail(name,email,message) {
-	// Create a transporter to send emails
 
-	// Define the email options
-
-	// Send the email
 	try {
-		const mailResponse1 = await mailsender(contactUsEmail(name,email,message),'akshatjn30902@gmail.com');
+		const mailResponse1 = await mailsender(contactUsEmail(name,email,message),'parashjain2810@gmail.com');
 		const mailResponse2 = await mailsender(clientForm(name,email,message),email);
 	} catch (error) {
 		console.log("Error occurred while sending email: ", error);
