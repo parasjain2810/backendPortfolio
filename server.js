@@ -1,9 +1,11 @@
 const express=require('express');
 const app=express();
 const cors=require('cors');
-const userRoute=require('./routes/userRoute');
+
 const DbConnection=require('./config/DbConnection');
+const { sendMessage } = require('./controller/userController');
 require('dotenv').config();
+
 
 app.use(express.json());
 app.use(cors({
@@ -11,7 +13,7 @@ app.use(cors({
   }));
 DbConnection();
 
-app.use('/user',userRoute);
+app.post('/user/sendMessage',sendMessage);
 
 app.get("/",(req,res)=>{
   res.send("hello");
